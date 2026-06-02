@@ -1,0 +1,514 @@
+html{
+scroll-behavior:smooth;
+}
+
+body{
+margin:0;
+background:black;
+font-family:'Poppins', sans-serif;
+overflow-x:hidden;
+color:white;
+}
+
+/* ESTRELLAS DE FONDO */
+
+.stars{
+position:fixed;
+width:100%;
+height:100%;
+
+background-image:
+radial-gradient(white 1px, transparent 1px);
+
+background-size:50px 50px;
+
+opacity:0.25;
+
+z-index:-1;
+
+animation:moveStars 60s linear infinite;
+}
+
+@keyframes moveStars{
+from{
+transform:translateY(0);
+}
+to{
+transform:translateY(-200px);
+}
+}
+
+/* PORTADA */
+
+#cover{
+height:100vh;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
+cursor:pointer;
+
+text-align:center;
+}
+
+.glow{
+font-size:80px;
+
+font-family:'Cormorant Garamond', serif;
+
+text-shadow:
+0 0 10px orange,
+0 0 30px orange,
+0 0 60px orange;
+
+animation:pulse 2s infinite;
+}
+
+.shine{
+font-size:22px;
+color:orange;
+
+animation:shine 3s infinite;
+}
+
+@keyframes pulse{
+0%{
+transform:scale(1);
+}
+50%{
+transform:scale(1.03);
+}
+100%{
+transform:scale(1);
+}
+}
+
+@keyframes shine{
+0%{
+opacity:0.6;
+}
+50%{
+opacity:1;
+}
+100%{
+opacity:0.6;
+}
+}
+
+/* CARTA */
+
+#letter{
+display:none;
+
+width:850px;
+
+margin:50px auto;
+
+padding:50px;
+
+border-radius:30px;
+
+position:relative;
+
+overflow:hidden;
+
+opacity:0;
+
+transition:2s;
+
+box-shadow:
+0 0 40px rgba(255,140,0,0.5);
+
+background-image:url("imagenes/galaxia.jpg");
+
+background-size:cover;
+background-position:center;
+
+color:#e6e6fa;
+
+font-family:'Cormorant Garamond', serif;
+}
+
+/* CAPA OSCURA */
+
+#letter::after{
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:rgba(0,0,0,0.45);
+
+border-radius:30px;
+
+z-index:0;
+}
+
+/* ESTRELLAS SOBRE LA CARTA */
+
+#letter::before{
+content:"";
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background-image:
+radial-gradient(white 1px, transparent 1px);
+
+background-size:60px 60px;
+
+opacity:0.2;
+
+animation:twinkle 4s infinite alternate;
+
+pointer-events:none;
+
+border-radius:30px;
+}
+
+#letter > *{
+position:relative;
+z-index:2;
+}
+
+@keyframes twinkle{
+from{
+opacity:0.2;
+}
+to{
+opacity:0.5;
+}
+}
+
+/* DECORACIONES */
+
+.decor{
+position:absolute;
+
+width:90px;
+
+opacity:0.7;
+}
+
+.star1{
+top:-20px;
+left:-20px;
+}
+
+.star2{
+bottom:-20px;
+right:-20px;
+}
+
+/* TITULOS */
+
+.titulo{
+text-align:center;
+
+font-size:70px;
+
+font-family:'Cormorant Garamond', serif;
+
+margin-bottom:0;
+
+text-shadow:
+0 0 10px #9370db,
+0 0 20px #663399;
+}
+
+.subtitulo{
+text-align:center;
+
+color:orange;
+
+letter-spacing:5px;
+
+margin-top:10px;
+margin-bottom:20px;
+}
+
+/* FRASE */
+
+.quote{
+text-align:center;
+
+font-style:italic;
+
+opacity:0.7;
+
+margin-top:-5px;
+
+margin-bottom:35px;
+
+letter-spacing:2px;
+}
+
+/* BANNER */
+
+.banner{
+width:100%;
+
+height:300px;
+
+object-fit:cover;
+
+border-radius:30px;
+
+margin-bottom:40px;
+
+box-shadow:
+0 0 20px rgba(255,140,0,0.4);
+
+filter:brightness(0.85);
+
+transition:0.5s;
+}
+
+.banner:hover{
+transform:scale(1.01);
+
+filter:brightness(1);
+}
+
+/* STICKERS */
+
+.stickers{
+text-align:center;
+
+font-size:35px;
+
+margin-bottom:50px;
+
+color:orange;
+}
+
+/* BLOQUES */
+
+.bloque{
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+gap:50px;
+
+margin-bottom:90px;
+}
+
+/* ALTERNAR */
+
+.reverse{
+flex-direction:row-reverse;
+}
+
+/* TEXTO */
+
+.bloque p{
+flex:1;
+
+font-size:21px;
+
+line-height:1.9;
+
+background:
+rgba(0,0,0,0.45);
+
+padding:25px;
+
+border-radius:20px;
+
+backdrop-filter:blur(8px);
+
+border:
+1px solid rgba(255,255,255,0.08);
+
+box-shadow:
+0 0 20px rgba(0,0,0,0.3);
+
+text-shadow:
+0 0 10px #9370db,
+0 0 20px #663399;
+}
+
+/* POLAROID */
+
+.polaroid{
+flex-shrink:0;
+
+position:relative;
+
+background:white;
+
+padding:15px 15px 40px 15px;
+
+border-radius:10px;
+
+transform:rotate(-2deg);
+
+box-shadow:
+0 0 25px rgba(147,112,219,0.6);
+
+animation:
+glowPulse 3s infinite alternate;
+
+transition:0.4s;
+}
+
+.polaroid:hover{
+transform:
+rotate(-2deg)
+scale(1.04);
+}
+
+.polaroid img{
+width:250px;
+height:250px;
+
+object-fit:cover;
+
+border-radius:10px;
+}
+
+@keyframes glowPulse{
+from{
+box-shadow:
+0 0 15px rgba(147,112,219,0.4);
+}
+
+to{
+box-shadow:
+0 0 35px rgba(147,112,219,0.8);
+}
+}
+
+/* FINAL */
+
+.final{
+text-align:center;
+
+font-size:45px;
+
+font-family:'Cormorant Garamond', serif;
+
+margin-top:60px;
+
+text-shadow:
+0 0 10px #9370db,
+0 0 20px #663399;
+}
+
+.final .english{
+font-size:22px;
+
+font-style:italic;
+
+opacity:0.8;
+
+display:block;
+
+margin-top:10px;
+}
+
+/* CORAZONES */
+
+.heart{
+position:fixed;
+
+font-size:25px;
+
+color:white;
+
+text-shadow:
+0 0 10px orange,
+0 0 20px orange,
+0 0 40px orange;
+
+animation:
+float 5s linear forwards;
+
+pointer-events:none;
+}
+
+@keyframes float{
+0%{
+transform:translateY(0);
+opacity:1;
+}
+
+100%{
+transform:translateY(-100vh);
+opacity:0;
+}
+}
+
+/* LUZ QUE SIGUE EL MOUSE */
+
+.cursor-glow{
+position:fixed;
+
+width:300px;
+height:300px;
+
+background:
+radial-gradient(
+circle,
+rgba(255,140,0,0.15),
+transparent 70%
+);
+
+pointer-events:none;
+
+top:var(--y);
+left:var(--x);
+
+transform:translate(-50%,-50%);
+
+z-index:9999;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+#letter{
+width:90%;
+padding:30px;
+}
+
+.bloque,
+.reverse{
+flex-direction:column !important;
+
+text-align:center;
+}
+
+.polaroid img{
+width:220px;
+height:220px;
+}
+
+.glow{
+font-size:55px;
+}
+
+.titulo{
+font-size:50px;
+}
+
+.banner{
+height:220px;
+}
+
+.bloque p{
+font-size:18px;
+}
+}
